@@ -4,7 +4,7 @@
 This repository provides a workflow to install **TIMESAT** and then run the processing script `run_csv_ts_HRVPP2.py`.
 
 ## Prerequisites
-- Python 3.9–3.12 recommended
+- Python 3.10–3.13 recommended
 - `pip` available in your environment
 - (Optional) A virtual environment tool such as `venv` or `conda`
 
