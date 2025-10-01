@@ -122,10 +122,7 @@ def _ts_run_(csvfilename, output_file_name, output_png_name):
     p_outststep = 1
     p_nodata = -9999
     p_outlier = 0
-    # if method_name == 'DL':
-    #     p_fitmethod = 1
-    # elif method_name == 'SP':
-    #     p_fitmethod = 2
+
     p_smooth = 10000
     p_nenvi = 1
     p_wfactnum = 2
@@ -191,6 +188,10 @@ def _ts_run_(csvfilename, output_file_name, output_png_name):
     
 
     for fitmethod_value in p_fitmethod_options:
+        if fitmethod_value == 1:
+            method_name = 'DL'
+        elif fitmethod_value == 2:
+            method_name = 'SP'
         # Ensure `p_fitmethod` is an array with the same shape
         p_fitmethod.fill(fitmethod_value)  # Fill the entire array with the current fitmethod_value
         
@@ -237,39 +238,39 @@ def _ts_run_(csvfilename, output_file_name, output_png_name):
     # Create output folder if it doesn't exist
     data.to_csv(output_file_name, index=False)
 
-    # # Convert to datetime objects
-    # y_row = vi.ravel()
-    # w_row = qa.ravel()
+    # Convert to datetime objects
+    y_row = vi.ravel()
+    w_row = qa.ravel()
 
-    # t_row = [datetime.strptime(str(date), "%Y%m%d") for date in tv_yyyymmdd]
+    t_row = [datetime.strptime(str(date), "%Y%m%d") for date in tv_yyyymmdd]
 
-    # # Filter data where w_row == 100
-    # filtered_indices = w_row == 100
-    # t_row_filtered = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
-    # y_row_filtered = y_row[filtered_indices]
+    # Filter data where w_row == 100
+    filtered_indices = w_row == 100
+    t_row_filtered = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
+    y_row_filtered = y_row[filtered_indices]
 
-    # # Filter data where w_row == 100
-    # filtered_indices = w_row >0
-    # t_row_filtered2 = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
-    # y_row_filtered2 = y_row[filtered_indices]
+    # Filter data where w_row == 100
+    filtered_indices = w_row >0
+    t_row_filtered2 = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
+    y_row_filtered2 = y_row[filtered_indices]
 
-    # # Create the plot
-    # plt.figure(figsize=(8, 5))
-    # #plt.plot(t_row, y_row, 'o', color='lightgrey', label='raw')  # 'o' for points
-    # plt.plot(t_row_filtered2, y_row_filtered2, 'o', color='lightgrey', label='median-qa')  # 'o' for points
-    # plt.plot(t_row_filtered, y_row_filtered, 'ko', label='clear-sky')  # 'o' for points
-    # plt.plot(daily_timestep, yfit[:], 'r-', label=method_name)
+    # Create the plot
+    plt.figure(figsize=(8, 5))
+    #plt.plot(t_row, y_row, 'o', color='lightgrey', label='raw')  # 'o' for points
+    plt.plot(t_row_filtered2, y_row_filtered2, 'o', color='lightgrey', label='median-qa')  # 'o' for points
+    plt.plot(t_row_filtered, y_row_filtered, 'ko', label='clear-sky')  # 'o' for points
+    plt.plot(daily_timestep, yfit[:], 'r-', label=method_name)
 
-    # # Formatting the plot
-    # #plt.title("Date vs Value Plot")
-    # plt.xlabel("Date")
-    # plt.ylabel("FAPAR")
-    # plt.grid(True)
-    # plt.legend()
+    # Formatting the plot
+    #plt.title("Date vs Value Plot")
+    plt.xlabel("Date")
+    plt.ylabel("FAPAR")
+    plt.grid(True)
+    plt.legend()
 
-    # # Save the plot to a PNG file
-    # plt.savefig(output_png_name)
-    # plt.close()
+    # Save the plot to a PNG file
+    plt.savefig(output_png_name)
+    plt.close()
 
 
 

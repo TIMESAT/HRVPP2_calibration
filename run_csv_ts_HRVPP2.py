@@ -2,15 +2,15 @@ import os
 import ts_csv_functions_HRVPP2
 
 # Define input and output directories
-input_folder = '/Users/zhanzhangcai/Library/CloudStorage/OneDrive-LundUniversity/HR-VPP2/FAPAR/flux_cal/V5/timeseries/50m/'
-output_folder = '/Users/zhanzhangcai/Library/CloudStorage/OneDrive-LundUniversity/HR-VPP2/V5.0/TIMESAT/50m_new/'
+input_folder = 'FAPAR/V5/timeseries/50m/'
+output_folder = 'output/FAPAR/'
 
 csvpath = os.path.join(output_folder, 'csv')
 pngpath = os.path.join(output_folder, 'png')
 
 # Create output folder if it doesn't exist
 os.makedirs(csvpath, exist_ok=True)
-# os.makedirs(pngpath, exist_ok=True)
+os.makedirs(pngpath, exist_ok=True)
 
 # Get all CSV files in the input folder
 csv_files = [f for f in os.listdir(input_folder) if f.endswith('.csv')]

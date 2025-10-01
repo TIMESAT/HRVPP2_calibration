@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+output/*
+
 # C extensions
 *.so
 
@@ -140,6 +142,7 @@ venv.bak/
 .spyderproject
 .spyproject
 
+*.DS_Store
 # Rope project settings
 .ropeproject
 
