@@ -45,22 +45,8 @@ timesat 4.1.7.dev0 OK
 ```
 
 ## 3) Run the processing script
-
-Ensure you are in the repository root where `run_csv_ts_HRVPP2.py` resides. If the script depends on local modules, keep the current working directory at the project root.
-
-### Basic usage
 ```bash
 python run_csv_ts_HRVPP2.py
-```
-
-## Repository Structure (suggested)
-```
-.
-├── run_csv_ts_HRVPP2.py
-├── data/
-│   └── example_inputs/
-├── results/
-└── README.md
 ```
 
 ## License
