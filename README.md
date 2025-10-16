@@ -4,7 +4,7 @@
 This repository provides a workflow to install **TIMESAT** and then run the processing script `run_csv_ts_HRVPP2.py`.
 
 ## Prerequisites
-- Python 3.10–3.13 recommended
+- Python 3.10–3.12 recommended
 - `pip` available in your environment
 - (Optional) A virtual environment tool such as `venv` or `conda`
 
@@ -23,7 +23,7 @@ python -m venv .venv
 
 ### Using Conda (optional)
 ```bash
-conda create -n timesat-env python=3.11 -y
+conda create -n timesat-env python=3.12 -y
 conda activate timesat-env
 ```
 
@@ -31,17 +31,7 @@ conda activate timesat-env
 Install from TestPyPI, allowing dependencies to come from PyPI:
 
 ```bash
-python -m pip install --upgrade pip
-python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple timesat==4.1.7.dev0
-```
-
-### Verify the installation and native extension
-```bash
-python -c "import timesat, timesat._timesat as _; print('timesat', timesat.__version__, 'OK')"
-```
-Expected output includes the version and `OK`, e.g.:
-```
-timesat 4.1.7.dev0 OK
+pip install timesat
 ```
 
 ## 3) Run the processing script
@@ -50,6 +40,7 @@ python run_csv_ts_HRVPP2.py
 ```
 
 ## License
+
 This project is licensed under the terms of the [Apache License 2.0](LICENSE) file.
 
 - **Precompiled wheels (TestPypi download)**  

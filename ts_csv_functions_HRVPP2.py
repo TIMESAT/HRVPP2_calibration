@@ -121,6 +121,7 @@ def _ts_run_(csvfilename, output_file_name, output_png_name):
     p_a = [[100., 100., 1.], [1., 99.9, 0.5], [0., 0., 0.]]
     p_outststep = 1
     p_nodata = -9999
+    p_davailwin = 45
     p_outlier = 0
 
     p_smooth = 10000
@@ -208,7 +209,7 @@ def _ts_run_(csvfilename, output_file_name, output_png_name):
                     # Generate yfit
                     vpp, vppqa, nseason, yfit, yfitqa, seasonfit, tseq = timesat.tsf2py(
                         yr, vi, qa, timevector, lc, p_nclasses, landuse, p_outindex,
-                        p_ignoreday, p_ylu, p_printflag, p_fitmethod, p_smooth, p_nodata, p_outlier, p_nenvi, p_wfactnum,
+                        p_ignoreday, p_ylu, p_printflag, p_fitmethod, p_smooth, p_nodata, p_outlier, p_davailwin, p_nenvi, p_wfactnum,
                         p_startmethod, p_startcutoff, p_low_percentile, p_fillbase, p_hrvppformat, p_seasonmethod, p_seapar,
                         y, 1, z, p_outindex_num)
 
