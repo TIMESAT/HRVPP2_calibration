@@ -193,5 +193,10 @@ if all_results:
                     bias_mean=('bias', 'mean')))
     print("\n=== Summary across sites (by setting × VPP) ===")
     print(summary.head(20))
+
+    # Save the summary DataFrame to CSV
+    summary.to_csv("summary_across_sites.csv", index=False)
+    print("\nSummary saved to 'summary_across_sites.csv'.")
+    
 else:
     print("No statistics were computed (check inputs/columns).")
