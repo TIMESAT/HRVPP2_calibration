@@ -309,7 +309,12 @@ def _ts_run_(csvfilename, output_yfit_file_name, output_vpp_file_name, output_pn
     # Formatting the plot
     #plt.title("Date vs Value Plot")
     plt.xlabel("Date")
-    plt.ylabel("FAPAR")
+    if 'GPP' in csvfilename:
+        plt.ylabel("Flux tower GPP")
+    elif 'FAPAR' in csvfilename:
+        plt.ylabel("FAPAR")
+    else:
+        plt.ylabel("VI")
     plt.grid(True)
     plt.legend()
 
