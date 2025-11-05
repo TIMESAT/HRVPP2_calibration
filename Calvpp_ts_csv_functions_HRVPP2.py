@@ -300,7 +300,8 @@ def _ts_run_(csvfilename, output_yfit_file_name, output_vpp_file_name, output_pn
     
     # Save the DataFrame to a CSV file
     # Create output folder if it doesn't exist
-    yfit_data.to_csv(output_yfit_file_name, index=False)
+    if 'GPP' in csvfilename:
+        yfit_data.to_csv(output_yfit_file_name, index=False)
 
     vpp_data.replace(-9999, np.nan, inplace=True)
     vpp_data.to_csv(output_vpp_file_name, index=False)
