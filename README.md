@@ -1,7 +1,7 @@
 # Project README
 
 ## Overview
-This repository provides a workflow to install **TIMESAT** and then run the processing script `run_csv_ts_HRVPP2.py`.
+Calibration workflow for the Copernicus High Resolution Vegetation Phenology and Productivity (HRVPP) Product: provides scripts and procedures to calibrate time-series and productivity estimates for high-resolution vegetation monitoring (using TIMESAT).
 
 ## Prerequisites
 - Python 3.10–3.12 recommended
