@@ -7,8 +7,8 @@ import Calvpp_ts_csv_functions_HRVPP2
 input_folder = 'FAPAR/V5/timeseries/50m/'
 output_folder = 'output/FAPAR/'
 
-input_folder = 'GPP/V2/gpp_final/'
-output_folder = 'output/GPP/'
+#input_folder = 'GPP/V2/gpp_final/'
+#output_folder = 'output/GPP/'
 csvpath = os.path.join(output_folder, 'csv')
 pngpath = os.path.join(output_folder, 'png')
 # Create output folder if it doesn't exist

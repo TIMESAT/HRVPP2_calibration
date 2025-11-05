@@ -113,6 +113,26 @@ def read_table_data(df, p_a):
     return tv_yyyydoy, tv_yyyymmdd, ym3, wm3, lc2, nyear, yrstart, yrend, npt, col
 
 
+def yydoy_float_to_datetime(sosd_day):
+    """
+    Convert a YYDOY float (e.g., 24123.5 -> 2024-05-02 12:00)
+    into a Python datetime object.
+    Handles fractional days and two-digit years.
+    """
+
+    yy = int(sosd_day // 1000)
+    doy_float = sosd_day % 1000  # retains decimals (e.g., 123.5)
+
+
+    # Interpret 2-digit year: 00–69 => 2000–2069, 70–99 => 1970–1999
+    year = 2000 + yy
+
+    doy_int = int(doy_float)
+
+    sos_date = datetime(year, 1, 1) + timedelta(days=doy_int - 1)
+
+    return sos_date
+
 
 
 
@@ -139,7 +159,7 @@ def _ts_run_(csvfilename, output_yfit_file_name, output_vpp_file_name, output_pn
     p_startcutoff = [0.5, 0.5]
     p_low_percentile = 0.0
     p_fillbase = 1
-    p_hrvppformat = 0
+    p_hrvppformat = 1
     p_seasonmethod = 1
     p_seapar = 1
     p_printflag = 0
@@ -281,46 +301,120 @@ def _ts_run_(csvfilename, output_yfit_file_name, output_vpp_file_name, output_pn
     # Save the DataFrame to a CSV file
     # Create output folder if it doesn't exist
     yfit_data.to_csv(output_yfit_file_name, index=False)
+
+    vpp_data.replace(-9999, np.nan, inplace=True)
     vpp_data.to_csv(output_vpp_file_name, index=False)
 
-    # Convert to datetime objects
-    y_row = vi.ravel()
-    w_row = qa.ravel()
 
-    t_row = [datetime.strptime(str(date), "%Y%m%d") for date in tv_yyyymmdd]
-
-    # Filter data where w_row == 100
-    filtered_indices = w_row == 100
-    t_row_filtered = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
-    y_row_filtered = y_row[filtered_indices]
-
-    # Filter data where w_row == 100
-    filtered_indices = w_row >0
-    t_row_filtered2 = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
-    y_row_filtered2 = y_row[filtered_indices]
-
-    # Create the plot
-    plt.figure(figsize=(8, 5))
-    #plt.plot(t_row, y_row, 'o', color='lightgrey', label='raw')  # 'o' for points
-    plt.plot(t_row_filtered2, y_row_filtered2, 'o', color='lightgrey', label='median-qa')  # 'o' for points
-    plt.plot(t_row_filtered, y_row_filtered, 'ko', label='clear-sky')  # 'o' for points
-    plt.plot(daily_timestep, yfit[:], 'r-', label=method_name)
-
-    # Formatting the plot
-    #plt.title("Date vs Value Plot")
-    plt.xlabel("Date")
     if 'GPP' in csvfilename:
-        plt.ylabel("Flux tower GPP")
-    elif 'FAPAR' in csvfilename:
-        plt.ylabel("FAPAR")
-    else:
-        plt.ylabel("VI")
-    plt.grid(True)
-    plt.legend()
+        # Convert to datetime objects
+        y_row = vi.ravel()
+        w_row = qa.ravel()
+        t_row = [datetime.strptime(str(date), "%Y%m%d") for date in tv_yyyymmdd]
 
-    # Save the plot to a PNG file
-    plt.savefig(output_png_name)
-    plt.close()
+        # Filter data where w_row == 100 (clear-sky points)
+        filtered_indices = w_row == 100
+        t_row_filtered = [t_row[i] for i in range(len(t_row)) if filtered_indices[i]]
+        y_row_filtered = y_row[filtered_indices]
+
+        # Filter data where w_row > 0 (QA-filtered points)
+        filtered_indices2 = w_row > 0
+        t_row_filtered2 = [t_row[i] for i in range(len(t_row)) if filtered_indices2[i]]
+        y_row_filtered2 = y_row[filtered_indices2]
+
+        # Create the plot
+        plt.figure(figsize=(8, 5))
+        plt.plot(t_row_filtered2, y_row_filtered2, 'o', color='lightgrey', label='median-qa')
+        plt.plot(t_row_filtered, y_row_filtered, 'ko', label='clear-sky')
+        plt.plot(daily_timestep, yfit[:], 'r-', label=method_name)
+
+            # ---- ADDITION: plot ALL SOSD (YYDOY float) and SOSV for all years & both seasons ----
+        try:
+            last_yfit_col = yfit_data.columns[-1]  # use the latest parameter combination
+
+            # helper: extract 4-digit year from vpp_data['id'] like "2020_s1_SOSD"
+            def extract_year(s):
+                try:
+                    return int(s.split('_', 1)[0])
+                except Exception:
+                    return None
+
+            # build season-wise frames for SOSD/SOSV and align by year
+            def season_frames(season: str):
+                sosd = vpp_data[vpp_data['id'].str.endswith(f'_{season}_SOSD')][['id', last_yfit_col]].copy()
+                sosv = vpp_data[vpp_data['id'].str.endswith(f'_{season}_SOSV')][['id', last_yfit_col]].copy()
+                if sosd.empty or sosv.empty:
+                    return pd.DataFrame()
+
+                sosd['year'] = sosd['id'].apply(extract_year)
+                sosv['year'] = sosv['id'].apply(extract_year)
+
+                sosd = sosd.rename(columns={last_yfit_col: 'SOSD'})
+                sosv = sosv.rename(columns={last_yfit_col: 'SOSV'})
+
+                # inner-merge on year to align rows
+                return pd.merge(sosd[['year', 'SOSD']], sosv[['year', 'SOSV']], on='year', how='inner').sort_values('year')
+
+            # avoid duplicate legend entries
+            added_label = {'s1_line': False, 's1_point': False, 's2_line': False, 's2_point': False}
+
+            for season, line_key, point_key, line_label, point_label, vline_kwargs in [
+                ('s1', 's1_line', 's1_point', 'SOSD (s1)', 'SOSV (s1)', dict(color='tab:blue', linestyle='--')),
+                ('s2', 's2_line', 's2_point', 'SOSD (s2)', 'SOSV (s2)', dict(color='tab:orange', linestyle='--')),
+            ]:
+                df_season = season_frames(season)
+                if df_season.empty:
+                    continue
+
+                for _, row in df_season.iterrows():
+                    sosd_val = row['SOSD']
+                    sosv_val = row['SOSV']
+                    if pd.isna(sosd_val) or pd.isna(sosv_val):
+                        continue
+
+                    # convert YYDOY float to datetime
+                    sos_date = yydoy_float_to_datetime(float(sosd_val))
+                    if sos_date is None:
+                        continue
+
+                    # vertical line at SOS day
+                    plt.axvline(
+                        sos_date,
+                        label=(line_label if not added_label[line_key] else None),
+                        **vline_kwargs
+                    )
+                    added_label[line_key] = True
+
+                    # point at (SOSD, SOSV)
+                    plt.scatter(
+                        sos_date,
+                        float(sosv_val),
+                        s=60,
+                        zorder=5,
+                        label=(point_label if not added_label[point_key] else None),
+                        edgecolors='none'
+                    )
+                    added_label[point_key] = True
+
+        except Exception as e:
+            print(f"Warning: Could not plot SOSD/SOSV — {e}")
+        # --------------------------------------------------------------------------------------
+
+
+        # Formatting
+        plt.xlabel("Date")
+        if 'GPP' in csvfilename:
+            plt.ylabel("Flux tower GPP")
+        elif 'FAPAR' in csvfilename:
+            plt.ylabel("FAPAR")
+        else:
+            plt.ylabel("VI")
+        plt.grid(True)
+        plt.legend()
+
+        # Save the plot
+        plt.savefig(output_png_name, dpi=300)
+        plt.close()
 
 
 
