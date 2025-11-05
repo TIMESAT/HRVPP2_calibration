@@ -43,7 +43,7 @@ python run_csv_ts_HRVPP2.py
 
 This project is licensed under the terms of the [Apache License 2.0](LICENSE) file.
 
-- **Precompiled wheels (TestPypi download)**  
+- **Precompiled wheels (PyPI download)**  
   **timesat model** is **proprietary and closed-source**.  
   All rights reserved by Zhanzhang Cai(Lund University), Lars Eklundh(Lund University), and Per Jönsson(Malmö University).  
   Usage is subject to [PROPRIETARY-LICENSE.txt](./vendor/PROPRIETARY-LICENSE.txt).  
