@@ -188,7 +188,10 @@ def _ts_run_(csvfilename, output_yfit_file_name, output_vpp_file_name, output_pn
 
     #timevector, indices = np.unique(timevector, return_index=True)
 
-    p_outindex = np.arange(1, yr*365+1)[::p_outststep]
+    p_outindex = np.arange(
+        (datetime.datetime(yrstart, 1, 1) - datetime.datetime(yrstart, 1, 1)).days + 1,
+        (datetime.datetime(yrstart + yr - 1, 12, 31) - datetime.datetime(yrstart, 1, 1)).days + 1
+    )[:: int(s.p_st_timestep)]
     p_outindex_num = len(p_outindex)
 
 
