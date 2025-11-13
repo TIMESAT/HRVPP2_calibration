@@ -184,7 +184,7 @@ def main():
 
         if handles:
             ax.legend(handles=handles, labels=labels, title=args.seapar_col, frameon=False, fontsize=9)
-
+        ax.set_ylim(0, 1)
         fig.tight_layout()
         fname = f"points_{sanitize_filename(args.score_col)}_by_VI_method_season_bestsea_{sanitize_filename(lc_name)}.png"
         fig.savefig(os.path.join(args.outdir, fname), dpi=args.dpi)
