@@ -1,0 +1,10 @@
+=== Land-cover summary ===
+Permanent Grassland      : 16
+Coniferous Forest        : 18
+Annual Cropland          : 10
+Periodically Grassland   : 2
+Broadleaf Forest         : 8
+Wetland                  : 8
+Permanent herbaceous     : 3
+Evergreen forest         : 2
+Permanent Cropland       : 1
