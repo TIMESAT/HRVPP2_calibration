@@ -60,6 +60,14 @@ Step 4: calculate VPP score
 ```bash
 python calculate_vpp_score.py
 ```
+Step 5: plot
+```bash
+python plot_vpp_points_by_triple_per_lc.py \
+  --csv output/ALL_VIs_SUMMARY_BY_LC_merged_with_score.csv \
+  --top-k 20 --min-per-group 3 \
+  --seapar-col seapar --annotate-setting
+```
+
 
 ## License
 
