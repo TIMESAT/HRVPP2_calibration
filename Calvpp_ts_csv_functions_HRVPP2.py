@@ -137,45 +137,6 @@ def yydoy_float_to_datetime(sosd_day):
 
 
 
-
-
-"""
-This script is part of the TIMESAT toolkit for the RAMONA project.
-
-Author: Zhanzhang Cai
-
-This Python script is designed to perform a variety of tasks related to time-series analysis of satellite sensor data, in the context of the RAMONA project.
-
-Instructions for running the code:
-1. Ensure that you have the necessary packages installed and the data available in the correct directories.
-2. In the terminal, navigate to the directory containing this script.
-3. Enter 'python run.py -help'.
-4. Follow any prompts that appear in the terminal.
-
-Please ensure you have read the associated documentation and understand the functions within this code before running it.
-
-Please modify L20 in settings_test_evi2.json for the path of output.
-For test:
-Enter 'python run.py -i settings_test_evi2.json' in your terminal
-
-For any further questions or assistance, contact Zhanzhang Cai.
-"""
-# import sys
-# sys.path.append("/Users/zhanzhangcai/Documents/GitHub/TIMESAT_python")  # Replace with the actual path
-# from memory_profiler import profile
-import json
-import math
-import os
-import numpy as np
-import timesat
-import time
-import copy
-import re
-from datetime import datetime, timedelta, date
-import pandas as pd
-import matplotlib.pyplot as plt
-
-
 def assign_qa_weight(p_a, qa):
     p_a = np.asarray(p_a)
     
