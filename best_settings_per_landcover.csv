@@ -1,0 +1,10 @@
+lc_id,lc_name,VI,method_name,seasonmethod,Setting,VPP_SCORE
+2,Wetland,LAI,SP,2,settings 1679,0.8843277297876395
+7,Broadleaf Forest,LAI,SP,2,settings 1699,0.825038326539379
+8,Coniferous Forest,LAI,DL,2,settings 700,0.6547308586652161
+9,Periodically Grassland,PPI,SP,2,settings 3581,0.7604486114917255
+10,Permanent Grassland,PPI,DL,1,settings 149,0.8018383439273651
+11,Annual Cropland,PPI,SP,1,settings 5100,0.6855463431646874
+12,Permanent Cropland,LAI,SP,2,settings 4870,0.9046452278129904
+14,Permanent herbaceous,EVI2,SP,1,settings 1118,0.9260261327390626
+16,Evergreen forest,LAI,SP,1,settings 3495,0.6660889327526373
