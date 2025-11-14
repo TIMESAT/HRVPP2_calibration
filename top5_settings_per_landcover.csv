@@ -1,0 +1,46 @@
+lc_id,lc_name,rank,VI,method_name,seasonmethod,Setting,VPP_SCORE
+2,Wetland,1,LAI,SP,2,settings 1979,0.8843277297876395
+2,Wetland,2,LAI,SP,2,settings 1679,0.8843277297876395
+2,Wetland,3,LAI,SP,2,settings 1879,0.8843277297876395
+2,Wetland,4,LAI,SP,2,settings 1779,0.8843277297876395
+2,Wetland,5,LAI,SP,2,settings 1689,0.8840021304671696
+7,Broadleaf Forest,1,LAI,SP,2,settings 1599,0.825038326539379
+7,Broadleaf Forest,2,LAI,SP,2,settings 1899,0.825038326539379
+7,Broadleaf Forest,3,LAI,SP,2,settings 1699,0.825038326539379
+7,Broadleaf Forest,4,LAI,SP,2,settings 1999,0.825038326539379
+7,Broadleaf Forest,5,LAI,SP,2,settings 1799,0.825038326539379
+8,Coniferous Forest,1,LAI,DL,2,settings 1000,0.6547308586652161
+8,Coniferous Forest,2,LAI,DL,2,settings 800,0.6547308586652161
+8,Coniferous Forest,3,LAI,DL,2,settings 900,0.6547308586652161
+8,Coniferous Forest,4,LAI,DL,2,settings 700,0.6547308586652161
+8,Coniferous Forest,5,LAI,DL,2,settings 890,0.6546820564718291
+9,Periodically Grassland,1,PPI,SP,2,settings 3581,0.7604486114917255
+9,Periodically Grassland,2,PPI,SP,2,settings 2592,0.7600605368936516
+9,Periodically Grassland,3,PPI,SP,2,settings 3571,0.7593825218069977
+9,Periodically Grassland,4,PPI,SP,2,settings 2582,0.7573915131386513
+9,Periodically Grassland,5,PPI,SP,2,settings 2593,0.7572223617389676
+10,Permanent Grassland,1,PPI,DL,1,settings 149,0.8018383439273651
+10,Permanent Grassland,2,PPI,DL,1,settings 139,0.8016042820040028
+10,Permanent Grassland,3,PPI,DL,1,settings 159,0.8015374351640582
+10,Permanent Grassland,4,PPI,DL,1,settings 169,0.8007993558124354
+10,Permanent Grassland,5,PPI,SP,1,settings 1447,0.7965033011754572
+11,Annual Cropland,1,PPI,SP,1,settings 5100,0.6855463431646874
+11,Annual Cropland,2,PPI,SP,1,settings 5099,0.6853736101805032
+11,Annual Cropland,3,PPI,SP,1,settings 5090,0.6845877479203544
+11,Annual Cropland,4,PPI,SP,1,settings 5089,0.6840459497011505
+11,Annual Cropland,5,PPI,SP,1,settings 5080,0.6828013893548402
+12,Permanent Cropland,1,LAI,SP,2,settings 4770,0.9046452278129904
+12,Permanent Cropland,2,LAI,SP,2,settings 4670,0.9046452278129904
+12,Permanent Cropland,3,LAI,SP,2,settings 4970,0.9046452278129904
+12,Permanent Cropland,4,LAI,SP,2,settings 4570,0.9046452278129904
+12,Permanent Cropland,5,LAI,SP,2,settings 4870,0.9046452278129904
+14,Permanent herbaceous,1,EVI2,SP,1,settings 1118,0.9260261327390626
+14,Permanent herbaceous,2,EVI2,SP,1,settings 1108,0.925605344552775
+14,Permanent herbaceous,3,EVI2,SP,1,settings 1109,0.9252383631871391
+14,Permanent herbaceous,4,EVI2,SP,1,settings 1119,0.9248893635581888
+14,Permanent herbaceous,5,EVI2,SP,1,settings 1117,0.9248357933625216
+16,Evergreen forest,1,LAI,SP,1,settings 3495,0.6660889327526373
+16,Evergreen forest,2,LAI,SP,1,settings 3485,0.663727874302795
+16,Evergreen forest,3,LAI,SP,1,settings 3494,0.6629877980989463
+16,Evergreen forest,4,LAI,SP,2,settings 3794,0.6614171388901211
+16,Evergreen forest,5,LAI,SP,2,settings 3994,0.6614171388901211

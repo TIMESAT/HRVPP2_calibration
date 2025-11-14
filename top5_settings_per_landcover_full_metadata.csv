@@ -1,0 +1,46 @@
+lc_id,lc_name,rank,fitmethod,method_name,smooth,seasonmethod,seapar,sos_cutoff,eos_cutoff,Setting,VI,VPP_SCORE
+2,Wetland,1,2,SP,100.0,2,1.0,0.4,0.45,settings 1979,LAI,0.8843277297876395
+2,Wetland,2,2,SP,100.0,2,0.25,0.4,0.45,settings 1679,LAI,0.8843277297876395
+2,Wetland,3,2,SP,100.0,2,0.75,0.4,0.45,settings 1879,LAI,0.8843277297876395
+2,Wetland,4,2,SP,100.0,2,0.5,0.4,0.45,settings 1779,LAI,0.8843277297876395
+2,Wetland,5,2,SP,100.0,2,0.25,0.45,0.45,settings 1689,LAI,0.8840021304671696
+7,Broadleaf Forest,1,2,SP,100.0,2,0.0,0.5,0.45,settings 1599,LAI,0.825038326539379
+7,Broadleaf Forest,2,2,SP,100.0,2,0.75,0.5,0.45,settings 1899,LAI,0.825038326539379
+7,Broadleaf Forest,3,2,SP,100.0,2,0.25,0.5,0.45,settings 1699,LAI,0.825038326539379
+7,Broadleaf Forest,4,2,SP,100.0,2,1.0,0.5,0.45,settings 1999,LAI,0.825038326539379
+7,Broadleaf Forest,5,2,SP,100.0,2,0.5,0.5,0.45,settings 1799,LAI,0.825038326539379
+8,Coniferous Forest,1,1,DL,1000.0,2,1.0,0.5,0.5,settings 1000,LAI,0.6547308586652161
+8,Coniferous Forest,2,1,DL,1000.0,2,0.5,0.5,0.5,settings 800,LAI,0.6547308586652161
+8,Coniferous Forest,3,1,DL,1000.0,2,0.75,0.5,0.5,settings 900,LAI,0.6547308586652161
+8,Coniferous Forest,4,1,DL,1000.0,2,0.25,0.5,0.5,settings 700,LAI,0.6547308586652161
+8,Coniferous Forest,5,1,DL,1000.0,2,0.75,0.45,0.5,settings 890,LAI,0.6546820564718291
+9,Periodically Grassland,1,2,SP,1000.0,2,0.0,0.45,0.05,settings 3581,PPI,0.7604486114917255
+9,Periodically Grassland,2,2,SP,300.0,2,0.0,0.5,0.1,settings 2592,PPI,0.7600605368936516
+9,Periodically Grassland,3,2,SP,1000.0,2,0.0,0.4,0.05,settings 3571,PPI,0.7593825218069977
+9,Periodically Grassland,4,2,SP,300.0,2,0.0,0.45,0.1,settings 2582,PPI,0.7573915131386513
+9,Periodically Grassland,5,2,SP,300.0,2,0.0,0.5,0.15,settings 2593,PPI,0.7572223617389676
+10,Permanent Grassland,1,1,DL,1000.0,1,0.25,0.25,0.45,settings 149,PPI,0.8018383439273651
+10,Permanent Grassland,2,1,DL,1000.0,1,0.25,0.2,0.45,settings 139,PPI,0.8016042820040028
+10,Permanent Grassland,3,1,DL,1000.0,1,0.25,0.3,0.45,settings 159,PPI,0.8015374351640582
+10,Permanent Grassland,4,1,DL,1000.0,1,0.25,0.35,0.45,settings 169,PPI,0.8007993558124354
+10,Permanent Grassland,5,2,SP,100.0,1,1.0,0.25,0.35,settings 1447,PPI,0.7965033011754572
+11,Annual Cropland,1,2,SP,10000.0,1,0.0,0.5,0.5,settings 5100,PPI,0.6855463431646874
+11,Annual Cropland,2,2,SP,10000.0,1,0.0,0.5,0.45,settings 5099,PPI,0.6853736101805032
+11,Annual Cropland,3,2,SP,10000.0,1,0.0,0.45,0.5,settings 5090,PPI,0.6845877479203544
+11,Annual Cropland,4,2,SP,10000.0,1,0.0,0.45,0.45,settings 5089,PPI,0.6840459497011505
+11,Annual Cropland,5,2,SP,10000.0,1,0.0,0.4,0.5,settings 5080,PPI,0.6828013893548402
+12,Permanent Cropland,1,2,SP,3000.0,2,0.5,0.35,0.5,settings 4770,LAI,0.9046452278129904
+12,Permanent Cropland,2,2,SP,3000.0,2,0.25,0.35,0.5,settings 4670,LAI,0.9046452278129904
+12,Permanent Cropland,3,2,SP,3000.0,2,1.0,0.35,0.5,settings 4970,LAI,0.9046452278129904
+12,Permanent Cropland,4,2,SP,3000.0,2,0.0,0.35,0.5,settings 4570,LAI,0.9046452278129904
+12,Permanent Cropland,5,2,SP,3000.0,2,0.75,0.35,0.5,settings 4870,LAI,0.9046452278129904
+14,Permanent herbaceous,1,2,SP,100.0,1,0.25,0.1,0.4,settings 1118,EVI2,0.9260261327390626
+14,Permanent herbaceous,2,2,SP,100.0,1,0.25,0.05,0.4,settings 1108,EVI2,0.925605344552775
+14,Permanent herbaceous,3,2,SP,100.0,1,0.25,0.05,0.45,settings 1109,EVI2,0.9252383631871391
+14,Permanent herbaceous,4,2,SP,100.0,1,0.25,0.1,0.45,settings 1119,EVI2,0.9248893635581888
+14,Permanent herbaceous,5,2,SP,100.0,1,0.25,0.1,0.35,settings 1117,EVI2,0.9248357933625216
+16,Evergreen forest,1,2,SP,1000.0,1,1.0,0.5,0.25,settings 3495,LAI,0.6660889327526373
+16,Evergreen forest,2,2,SP,1000.0,1,1.0,0.45,0.25,settings 3485,LAI,0.663727874302795
+16,Evergreen forest,3,2,SP,1000.0,1,1.0,0.5,0.2,settings 3494,LAI,0.6629877980989463
+16,Evergreen forest,4,2,SP,1000.0,2,0.5,0.5,0.2,settings 3794,LAI,0.6614171388901211
+16,Evergreen forest,5,2,SP,1000.0,2,1.0,0.5,0.2,settings 3994,LAI,0.6614171388901211
